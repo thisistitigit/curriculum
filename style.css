@@ -1,0 +1,390 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+/* Fonte principal e corpo */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+    color: #666;
+    font-weight: 300;
+    line-height: 1.6;
+    background: #f9f9f9;
+  }
+ /* Container com aspeto de página Word */
+.container {
+    /* Tamanho A4 em px @ 96dpi (aprox.) */
+    width: 794px;            /* 21cm × 37.8px/cm */
+    /* Altura livre, cresce com o conteúdo */
+    min-height: 1123px;      /* 29.7cm × 37.8px/cm */
+    margin: 40px auto;
+    padding: 48px 64px;      /* 1cm topo/baixo e 1.7cm laterais */
+    background: #fff;
+    /* Ligeiro sombreado para efeito de folha */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* Esconde transbordos horiz. */
+    overflow: hidden;
+    /* Removes old border */
+    border: none;
+  }
+  
+  @media print {
+    .modal, .pdf-actions, .has-modal i { display: none !important; }
+    iframe.pdf-viewer { display: block !important; width: 100%; height: auto !important; }
+  }
+  
+
+  /* HEADER EUROPASS */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #EEF8FE; /* azul muito claro */
+    padding: 24px;
+  }
+  
+  /* Foto circular com borda azul */
+  .header .photo {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #0072CE;
+  }
+  .header .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Zona do nome e dados */
+  .header .info {
+    flex: 1;
+    margin: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Nome */
+  .header .info h1 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Dados pessoais: três itens em coluna única */
+  .header .personal-data {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  /* Faz com que todo strong dentro de .personal-data fique bem bold e escuro */
+.personal-data strong {
+    font-weight: 700;   /* força o negrito */
+    color: #333;        /* texto escuro */
+  }
+  
+  .header .personal-data div {
+    font-size: 12px;
+    color: #555;
+    white-space: nowrap;
+  }
+  
+  /* Contactos: em coluna e alinhados com ícone */
+  .header .contact-data {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .contact-data .icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #0072CE;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  
+  .header .contact-data span {
+    font-size: 12px;
+    color: #333;
+  }
+  
+  /* Logo Europass */
+  .header .logo img {
+    max-height: 50px;
+    object-fit: contain;
+  }
+  
+  /* Linha separadora */
+  hr.header-separator {
+    border: none;
+    border-top: 0px solid #0072CE;
+    margin: 0;
+  }
+  
+  /* Conteúdo principal em coluna única */
+  .content.single-column {
+    padding: 0 20px 20px;
+  }
+  /* Container */
+.container {
+    width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+  /* EDUCAÇÃO E FORMAÇÃO */
+.section {
+    margin-bottom: 24px;
+  }
+  
+  /* Título da secção */
+  .section h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;                 /* texto escuro */
+    border-bottom: 1px solid #0072CE;
+    padding-bottom: 3px;
+    margin-bottom: 12px;
+  }
+  
+
+  /* Espaço extra entre entradas */
+  .section-item + .section-item {
+    margin-top: 24px;
+  }
+  
+  /* Título de cada entrada */
+  .section-item h3 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 6px;
+  }
+  
+  /* Nome da instituição em itálico e negrito acinzentado */
+  .section-item p > strong > em {
+    font-style: italic;
+    font-weight: 700;
+    color: #666;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+  
+  /* Data entre colchetes, cinza claro e fino */
+  .section-item .date {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    color: #999;
+  }
+  /* Linhas de detalhe alinhadas */
+  .section-item p.details {
+    font-family: Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: lighter;
+    color: #666;
+    margin: 0px 0 0 5px!important;
+    text-indent: -8px;
+  }
+  .section-item p.details::before {
+    content: "–";
+    margin-right: 3px;
+  }
+  
+  /* Remover margens extras em parágrafos normais */
+  .section-item p:not(.details) {
+    margin: 0 0 6px 0;   /* margin-bottom:6px */
+    line-height: 1.4;
+  }
+  
+  /* Links */
+  .section-item a {
+    color: #0b60a5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    text-decoration: underline;
+  }
+  /* Garanto que todo <strong> dentro de section-item fique bem bold e escuro */
+.section-item p strong {
+    font-weight: 600 !important;
+    color: #666 !important;
+  }
+  
+  
+  /* Modal — cobre toda a viewport e centraliza o conteúdo */
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.75);
+    z-index: 1000;
+  }
+  .modal-content {
+    background: #fff;
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .pdf-header {
+    flex: 0 0 auto;
+    background: #f5f5f5;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+  }
+  .pdf-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+  .pdf-actions a,
+  .pdf-actions button {
+    background: none;
+    border: none;
+    padding: 4px;
+    margin-left: 8px;
+    cursor: pointer;
+    color: #333;
+  }
+  .pdf-actions a:hover i,
+  .pdf-actions button:hover i {
+    color: #0072CE;
+  }
+  .pdf-viewer {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none;
+  }
+  
+  
+ /* --- TÍTULO DA SECÇÃO --- */
+.linguistic-skills h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;                 /* texto escuro */
+    border-bottom: 1px solid #0072CE;
+    padding-bottom: 3px;
+    margin-bottom: 12px;
+  }
+  
+  /* --- LINHAS “LÍNGUA(S)” --- */
+  .linguistic-item {
+    margin-bottom: 6px;
+  }
+  .linguistic-item .label {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;            /* negrito */
+    color: #333;
+  }
+  .linguistic-item .value {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 300;            /* leve */
+    color: #666;                 /* cinzento */
+    display: inline-block;
+    margin-left: 4px;
+  }
+  /* indent para o “inglês” vir recuado */
+  .linguistic-item.indent .value,
+  .linguistic-item .value.indent {
+    display: block;
+    margin-left: 1px;
+    font-weight: 900;
+    color: #333;
+  }
+  
+  /* --- GRELHA DE PROFICIÊNCIA --- */
+  .proficiency-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;               /* menos espaço vertical */
+    margin: 8px 0;
+  }
+  .proficiency-grid div {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+  }
+  .proficiency-grid strong {
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+  }
+  .proficiency-grid span {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666;
+    margin-left: 4px;
+  }
+  
+  /* --- LINHA DE NÍVEIS (itálico) --- */
+  .levels {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #666;
+    margin-top: 6px;
+  }
+  
+  /* --- ESTILO DA SECÇÃO "Carta de Condução" --- */
+.section:nth-of-type(n+1) h2 {
+    /* o próprio h2 já está estilizado globalmente, não precisas de repetir */
+  }
+  
+  /* Força o <p> da Carta de Condução a ter espaçamento idêntico */
+  .section:nth-of-type(n+1) p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+    margin: 4px 0;            /* igual às restantes secções */
+    line-height: 1.4;
+  }
+  
+  /* Rótulo "Carta de condução:" em negrito escuro */
+  .section:nth-of-type(n+1) p strong {
+    font-weight: 700;
+    color: #333;
+    margin-right: 4px;
+  }
+  
+  .section-item h3.has-modal {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .section-item h3.has-modal i {
+    width: 16px;
+    height: 16px;
+    color: #0072CE;
+  }
+  
+  .section-item h3.has-modal:hover i {
+    color: #005bbb;
+  }

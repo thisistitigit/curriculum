@@ -1,0 +1,20 @@
+{
+  "name": "cvdina",
+  "version": "1.0.0",
+  "main": "print-cv.js",
+  "scripts": {
+   "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "puppeteer": "^24.8.0"
+  },
+  "devDependencies": {
+    "vite-plugin-pwa": "^1.0.0"
+  }
+}
